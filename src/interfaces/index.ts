@@ -3,3 +3,10 @@ export interface ProductValidation {
   name: string;
   amount: string;
 }
+
+export interface UserValidation {
+  username: string;
+  vocation: string;
+  level: number;
+  password: string;
+}
