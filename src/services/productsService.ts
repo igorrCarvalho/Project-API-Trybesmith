@@ -1,4 +1,4 @@
-import { insertNewProduct } from '../models/productsModel';
+import { insertNewProduct, getAllProducts } from '../models/productsModel';
 import { ProductValidation } from '../interfaces';
 
 export const supplyProductInsertion = async (product: ProductValidation) => {
@@ -6,4 +6,7 @@ export const supplyProductInsertion = async (product: ProductValidation) => {
   return { isErr: false, type: 201, message: insertion };
 };
 
-export const yesyes = () => {};
+export const supplyAllProducts = async () => {
+  const allProducts = await getAllProducts();
+  return { isErr: false, type: 200, message: allProducts };
+};

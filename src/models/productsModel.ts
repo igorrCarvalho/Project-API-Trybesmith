@@ -1,4 +1,4 @@
-import { ResultSetHeader } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import connection from './connection';
 import { ProductValidation } from '../interfaces';
 
@@ -12,4 +12,9 @@ export const insertNewProduct = async ({
   return { id: insertId, amount, name };
 };
 
-export const si = () => {};
+export const getAllProducts = async (): Promise<ProductValidation[]> => {
+  const [result] = await connection.execute<ProductValidation[] & RowDataPacket[]>(`
+    SELECT * FROM Trybesmith.products
+  `);
+  return result;
+};
