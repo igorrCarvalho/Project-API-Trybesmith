@@ -10,3 +10,8 @@ export interface UserValidation {
   level: number;
   password: string;
 }
+
+export interface LoginValidation {
+  username: string;
+  password: string;
+}
